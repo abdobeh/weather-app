@@ -1,0 +1,182 @@
+@mixin mobile {
+    @media screen and (max-width: 490px) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media screen and (max-width: 1140px) {
+        @content;
+    }
+}
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$CreteRound: "CreteRound";
+
+@mixin font($CreteRound, $file) {
+
+    @font-face {
+      font-family: $CreteRound;
+      src: url("../../font/Crete_Round/CreteRound.eot");
+      src: url('../../font/Crete_Round/CreteRound.eot?#iefix') format('embedded-opentype'),
+           url('../../font/Crete_Round/CreteRound.woff') format('woff'),
+           url('../../font/Crete_Round/CreteRound.woff2') format('woff2'),
+           url('../../font/Crete_Round/CreteRound.ttf') format('truetype'),
+           url('../../font/Crete_Round/CreteRound.svg#Michroma') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+}
+
+@include font($CreteRound, "../../font/Crete_Round");
+
+.weather {
+    width: 90%;
+    height: auto;
+    box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.25), 1px 1px 4px rgba(0, 0, 0, 0.25);
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    margin: 4rem auto;
+    padding: 20px;
+
+        .center {
+
+            width: 100%;
+            align-content: center;
+            text-align: center;
+            margin: 0% auto;
+
+            .card {
+                background: rgba(0, 0, 0, 0.8);    
+                border-radius: 1rem;            
+                padding: 2%;
+                margin-top: 3%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .left {
+                    width: 50%;
+                    align-content: center;
+                    text-align: center;
+                  
+                }
+    
+                .right {
+                    width: 50%;
+                    align-content: center;
+                    text-align: center;
+                }   
+                
+                h1 {
+                    align-items: center;
+                    font-weight: 600;
+                    font-size: 35px;
+                    width: auto;
+                    color: white;
+                    @include mobile() {
+                        font-size: 25px;
+                    }
+                }
+    
+                .description {
+                    font-weight: 100;
+                    font-size: 25px;
+    
+                    align-items: center;
+                    margin: auto 0%;
+                    color: white;
+                    @include mobile() {
+                        font-size: 18px;
+                    }
+                } 
+            }
+
+            h2 {
+                font-weight: 400;
+                font-size: 40px;
+                @include mobile() {
+                    font-size: 32px;
+                }
+            }
+
+            .flex {
+                border-radius: 1rem;
+                padding: 2%;
+                margin-top: 3%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .left {
+                    width: 50%;
+                    align-content: center;
+                    text-align: center;
+                }
+    
+                .right {
+                    width: 50%;
+                    align-content: center;
+                    text-align: center;
+                }   
+    
+                .description {
+                    font-weight: 400;
+                    font-size: 25px;
+    
+                    align-items: center;
+                    margin: auto 0%;
+                    color: black;
+                } 
+            }
+        }
+}
+
+.Bcard {
+    background: rgba(0, 0, 0, 0.8);   
+    border-radius: 1rem;             
+    padding: 6% 6% 4% 6%;
+    margin-top: 3%;
+
+    color: white;
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2%;
+ 
+        .label {
+            text-align: left;
+            font-weight: 400;
+            font-size: 25px;
+            @include mobile() {
+                font-size: 15px;
+            }
+        }
+    
+        .value {
+            text-align: right;
+            font-weight: 800;
+            font-size: 20px;
+            @include mobile() {
+                font-size: 15px;
+            }
+    
+                span {
+                    font-family: $CreteRound, sans-serif;
+                    font-size: 13px;
+                    font-weight: 100;
+                }
+        }
+
+    }
+}
+
+
+    
+
+

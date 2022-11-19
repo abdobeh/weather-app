@@ -1,0 +1,153 @@
+@mixin mobile {
+    @media screen and (max-width: 490px) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media screen and (max-width: 1140px) {
+        @content;
+    }
+}
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+$CreteRound: "CreteRound";
+
+@mixin font($CreteRound, $file) {
+
+    @font-face {
+      font-family: $CreteRound;
+      src: url("../../font/Crete_Round/CreteRound.eot");
+      src: url('../../font/Crete_Round/CreteRound.eot?#iefix') format('embedded-opentype'),
+           url('../../font/Crete_Round/CreteRound.woff') format('woff'),
+           url('../../font/Crete_Round/CreteRound.woff2') format('woff2'),
+           url('../../font/Crete_Round/CreteRound.ttf') format('truetype'),
+           url('../../font/Crete_Round/CreteRound.svg#Michroma') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+}
+
+@include font($CreteRound, "../../font/Crete_Round");
+
+.Container {
+    background-color: transparent;
+    height: auto;
+    padding: 3%;
+    width: 90%;
+    margin: 0% auto;
+    text-align: center;
+
+    .title {
+        font-size: 40px;
+        font-weight: 400;
+        color: white;
+        text-align: center;
+        @include mobile() {
+            font-size: 30px;
+        }
+    }
+
+
+    .daily {
+        background-color: #212121 ;
+        border-radius: 15px;
+        height: auto;
+        padding: 1rem;
+        margin: 2% 2%;
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+
+        grid-template-columns: 50% 50%;
+
+        z-index: 20;
+
+
+            .day {
+                color: #f5f5f5;
+                font-weight: 400;
+                cursor: pointer;
+                font-size: 20px;
+                @include mobile() {
+                    font-size: 15px;
+                }
+            }
+
+            .description {
+                cursor: inherit;
+                color: #f5f5f5;
+                text-align: left;  
+                font-size: 15px;  
+                font-weight: 800;  
+                @include mobile() {
+                    font-size: 13px;
+                }      
+            }
+            
+            .min-max {
+                color: #f5f5f5;
+                cursor: pointer;  
+                font-size: 25px; 
+                @include mobile() {
+                    font-size: 20px;
+                }        
+            }
+    }    
+
+    .details {
+        background-color: #f5f5f5;
+        margin: -0% 2% 0%;
+        column-gap: 30%;
+        position: sticky;
+        grid-template-columns: auto auto;
+        text-align: left;
+        justify-content: center;
+        z-index: 999;
+        padding: 2% 4%;
+
+        border-radius: 15px;
+
+        box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.25);
+
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2%;
+     
+            .label {
+                text-align: left;
+                font-weight: 400;
+                font-size: 20px;
+                @include mobile() {
+                    font-size: 15px;
+                }
+            }
+        
+            .value {
+                text-align: right;
+                font-weight: 800;
+                font-size: 15px;
+                @include mobile() {
+                    font-size: 13px;
+                }
+        
+                span {
+                    font-family: $CreteRound, sans-serif;
+                    font-size: 12px;
+                    font-weight: 100;
+                    color: inherit;
+                }
+            }
+    
+        }
+    }    
+}
+
