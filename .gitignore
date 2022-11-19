@@ -12,6 +12,8 @@
 /build
 
 # misc
+.firebaserc
+/frebase.json
 .env
 .DS_Store
 .env.local
